@@ -1,0 +1,252 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Practice\\CityAir\\CityAir.UI.UnitTests\\CityAir.UI.UnitTests.csproj": {}
+  },
+  "projects": {
+    "C:\\Practice\\CityAir\\CityAir.Infrastructure\\CityAir.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Practice\\CityAir\\CityAir.Infrastructure\\CityAir.Infrastructure.csproj",
+        "projectName": "CityAir.Infrastructure",
+        "projectPath": "C:\\Practice\\CityAir\\CityAir.Infrastructure\\CityAir.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\SKoroh\\.nuget\\packages\\",
+        "outputPath": "C:\\Practice\\CityAir\\CityAir.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\SKoroh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://nuget.episerver.com/feed/packages.svc/": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.optimizely.com/feed/packages.svc/": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Refit": {
+              "target": "Package",
+              "version": "[6.3.2, )"
+            },
+            "Refit.HttpClientFactory": {
+              "target": "Package",
+              "version": "[6.3.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.407\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Practice\\CityAir\\CityAir.UI.UnitTests\\CityAir.UI.UnitTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Practice\\CityAir\\CityAir.UI.UnitTests\\CityAir.UI.UnitTests.csproj",
+        "projectName": "CityAir.UI.UnitTests",
+        "projectPath": "C:\\Practice\\CityAir\\CityAir.UI.UnitTests\\CityAir.UI.UnitTests.csproj",
+        "packagesPath": "C:\\Users\\SKoroh\\.nuget\\packages\\",
+        "outputPath": "C:\\Practice\\CityAir\\CityAir.UI.UnitTests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\SKoroh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://nuget.episerver.com/feed/packages.svc/": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.optimizely.com/feed/packages.svc/": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Practice\\CityAir\\CityAir.UI\\CityAir.UI.csproj": {
+                "projectPath": "C:\\Practice\\CityAir\\CityAir.UI\\CityAir.UI.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.6.0-preview-20230223-05, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.4, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.3, )"
+            },
+            "NUnit.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.6.1, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.5.0-alpha.4, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.407\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Practice\\CityAir\\CityAir.UI\\CityAir.UI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Practice\\CityAir\\CityAir.UI\\CityAir.UI.csproj",
+        "projectName": "CityAir.UI",
+        "projectPath": "C:\\Practice\\CityAir\\CityAir.UI\\CityAir.UI.csproj",
+        "packagesPath": "C:\\Users\\SKoroh\\.nuget\\packages\\",
+        "outputPath": "C:\\Practice\\CityAir\\CityAir.UI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\SKoroh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://nuget.episerver.com/feed/packages.svc/": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.optimizely.com/feed/packages.svc/": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Practice\\CityAir\\CityAir.Infrastructure\\CityAir.Infrastructure.csproj": {
+                "projectPath": "C:\\Practice\\CityAir\\CityAir.Infrastructure\\CityAir.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.13, )"
+            },
+            "Razor.Templating.Core": {
+              "target": "Package",
+              "version": "[1.8.0, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.407\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+﻿@using CityAir.UI.Features.CityAirQuality
+@model GetCityAirViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="filters">
+    <h2>Filters</h2>
+    <form id="filterForm" action="/" method="get">
+        @Html.HiddenFor(m => m.QueryParam.Page)
+        @Html.HiddenFor(m => m.QueryParam.Offset)
+        @Html.HiddenFor(m => m.QueryParam.Limit)
+        <div class="form-group">
+            Sort By: @Html.DropDownListFor(m => m.QueryParam.Sort, Model.SortBy, " ")
+        </div>
+        <div class="form-group">
+            Order By: @Html.DropDownListFor(m => m.QueryParam.OrderBy, Model.OrderBy, " ")
+        </div>
+        <div class="form-group">
+            Country Id: @Html.TextBoxFor(m => m.QueryParam.CountryId)
+        </div>
+        <div class="form-group">
+            Entity: @Html.TextBoxFor(m => m.QueryParam.Entity)
+        </div>
+        <div class="form-group">
+            Country: @Html.TextBoxFor(m => m.QueryParam.Country)
+        </div>
+        <div class="form-group">
+            City: @Html.TextBoxFor(m => m.QueryParam.City)
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<div class="city-content">
+    <h2>Cities</h2>
+    <div class="city-items">
+        @await Html.PartialAsync("CitiesPartial", Model)
+    </div>
+    <button id="loadMore" type="button">Load More</button>
+</div>
+
+@section Scripts {
+    <script>
+        async function postData(url = "", data = {}) {
+            const response = await fetch(url, {
+                method: "POST", 
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data),
+            });
+            return response.json();
+        }
+
+        window.addEventListener("load", (event) => {
+            let payload = @Json.Serialize(Model.QueryParam);
+            document.querySelector("#loadMore").addEventListener("click", (event) => {
+
+                let hiddenPage = document.querySelector("#QueryParam_Page");
+                hiddenPage.value++;
+
+                payload.page = hiddenPage.value;
+                console.log(payload);
+
+                postData("/loadmore", payload).then((data) => {
+                    document.querySelector(".city-items").innerHTML += data.data;
+                    console.log(data);
+                });
+            });
+        });
+    </script>
+}

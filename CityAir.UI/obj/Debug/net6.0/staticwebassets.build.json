@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "GRYjFbKGf7RkNmaoE/II3io4D+jpCFzsVFarLYHCHkg=",
+  "Source": "CityAir.UI",
+  "BasePath": "_content/CityAir.UI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CityAir.UI\\wwwroot",
+      "Source": "CityAir.UI",
+      "ContentRoot": "C:\\Practice\\CityAir\\CityAir.UI\\wwwroot\\",
+      "BasePath": "_content/CityAir.UI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Practice\\CityAir\\CityAir.UI\\wwwroot\\css\\main.css",
+      "SourceId": "CityAir.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Practice\\CityAir\\CityAir.UI\\wwwroot\\",
+      "BasePath": "_content/CityAir.UI",
+      "RelativePath": "css/main.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\main.css"
+    }
+  ]
+}
