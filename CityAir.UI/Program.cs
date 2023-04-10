@@ -1,10 +1,13 @@
 using CityAir.Infrastructure;
 using CityAir.UI.Features.CityAirQuality;
 using Serilog;
+using Serilog.Formatting.Compact;
 
 Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
-    .WriteTo.Console()
+    .WriteTo.Console(new RenderedCompactJsonFormatter())
+    .WriteTo.Debug(outputTemplate: DateTime.Now.ToString())
+    .WriteTo.File("/Logs/log.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 try

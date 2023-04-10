@@ -29,6 +29,9 @@ namespace CityAir.UI.Features.CityAirQuality
                 }
 
                 var response = await _openAQApi.GetCities(queryParam);
+
+                _logger.LogInformation($"Request processed successful for {currentUrl}", response);
+
                 result.Results.AddRange(response.Results);
 
                 _memoryCache.Set(currentUrl, result);

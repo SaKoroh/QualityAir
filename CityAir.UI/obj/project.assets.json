@@ -10032,7 +10032,8 @@
       "CityAir.Infrastructure >= 1.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.13",
       "Razor.Templating.Core >= 1.8.0",
-      "Serilog.AspNetCore >= 6.1.0"
+      "Serilog.AspNetCore >= 6.1.0",
+      "Serilog.Sinks.File >= 5.0.0"
     ]
   },
   "packageFolders": {
@@ -10091,6 +10092,10 @@
           "Serilog.AspNetCore": {
             "target": "Package",
             "version": "[6.1.0, )"
+          },
+          "Serilog.Sinks.File": {
+            "target": "Package",
+            "version": "[5.0.0, )"
           }
         },
         "imports": [
