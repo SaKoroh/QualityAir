@@ -8,6 +8,6 @@ namespace CityAir.UI.Features.CityAirQuality
         public List<SelectListItem> SortBy { get; set; }
         public List<SelectListItem> OrderBy { get; set; }
         public GetCityAirQueryParam QueryParam { get; set; }
-        public List<GetCityResult> Results { get; set; }
+        public List<GetCityResult> Items { get; set; }
     }
 }

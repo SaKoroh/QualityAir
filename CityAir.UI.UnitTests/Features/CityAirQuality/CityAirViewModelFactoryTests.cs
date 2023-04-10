@@ -91,7 +91,7 @@ namespace CityAir.UI.UnitTests.Features.CityAirQuality
             var expected = new GetCityAirViewModel
             {
                 QueryParam = queryParam,
-                Results = expectedResults
+                Items = expectedResults
             };
 
             _openAQApiMock.Setup(x => x.GetCities(It.IsAny<QueryParam>())).ReturnsAsync(new GetCityResponse { Results = expectedResults });
@@ -99,8 +99,8 @@ namespace CityAir.UI.UnitTests.Features.CityAirQuality
             var result = await _sut.Create(queryParam);
 
 
-            Assert.AreEqual(1, result.Results.Count);
-            Assert.AreEqual(expectedResults[0].City, result.Results[0].City);
+            Assert.AreEqual(1, result.Items.Count);
+            Assert.AreEqual(expectedResults[0].City, result.Items[0].City);
         }
 
         [Test]
@@ -111,7 +111,7 @@ namespace CityAir.UI.UnitTests.Features.CityAirQuality
             var expected = new GetCityAirViewModel
             {
                 QueryParam = queryParam,
-                Results = new List<GetCityResult>()
+                Items = new List<GetCityResult>()
             };
 
             var exception = await ApiException.Create(new HttpRequestMessage(), HttpMethod.Get, new HttpResponseMessage(), new RefitSettings(), null);
@@ -120,7 +120,7 @@ namespace CityAir.UI.UnitTests.Features.CityAirQuality
             var result = await _sut.Create(queryParam);
 
             Assert.That(result.QueryParam, Is.EqualTo(expected.QueryParam));
-            Assert.That(result.Results, Is.EqualTo(expected.Results));
+            Assert.That(result.Items, Is.EqualTo(expected.Items));
             _loggerMock.Verify(x =>
                     x.Log(
                       LogLevel.Error,

@@ -19,20 +19,22 @@ namespace CityAir.UI.Features.CityAirQuality
         }
         public async Task<GetCityAirViewModel> Create(GetCityAirQueryParam queryParam)
         {
-            var result = InitializeModel(queryParam);
             var cachKey = GetKey(queryParam);
+
+            if (_memoryCache.TryGetValue(cachKey, out GetCityAirViewModel cachedResponse))
+            {
+                return cachedResponse;
+            }
+
+            var result = InitializeModel(queryParam);
+
             try
             {
-                if (_memoryCache.TryGetValue(cachKey, out GetCityAirViewModel cachedResponse))
-                {
-                    return cachedResponse;
-                }
-
                 var response = await _openAQApi.GetCities(queryParam);
 
                 _logger.LogInformation($"Request processed successful for {cachKey}", response);
 
-                result.Results.AddRange(response.Results);
+                result.Items.AddRange(response.Results);
 
                 _memoryCache.Set(cachKey, result);
 
@@ -52,7 +54,7 @@ namespace CityAir.UI.Features.CityAirQuality
                 QueryParam = queryParam,
                 OrderBy = GetOrderBySelectListItems(queryParam.OrderBy),
                 SortBy = GetSortBySelectListItems(queryParam.Sort),
-                Results = new List<GetCityResult>()
+                Items = new List<GetCityResult>()
             };
         }
 
