@@ -66,11 +66,10 @@ namespace CityAir.UI.UnitTests.Features.CityAirQuality
         {
 
             var queryParam = new GetCityAirQueryParam { Country = "US", Limit = 10 };
-            var currentUrl = "http://localhost:5000/air-quality?country=US&limit=10";
             var cachedResponse = new GetCityAirViewModel { QueryParam = queryParam };
             _sut = new CityAirViewModelFactory(_openAQApiMock.Object, GetMemoryCache(cachedResponse, true), _loggerMock.Object);
 
-            var result = await _sut.Create(queryParam, currentUrl);
+            var result = await _sut.Create(queryParam);
 
             Assert.NotNull(result);
             Assert.AreEqual(cachedResponse, result);
@@ -82,7 +81,6 @@ namespace CityAir.UI.UnitTests.Features.CityAirQuality
         {
 
             var queryParam = new GetCityAirQueryParam();
-            var currentUrl = "https://example.com";
             var expectedResults = new List<GetCityResult>()
             {
                 new GetCityResult
@@ -98,7 +96,7 @@ namespace CityAir.UI.UnitTests.Features.CityAirQuality
 
             _openAQApiMock.Setup(x => x.GetCities(It.IsAny<QueryParam>())).ReturnsAsync(new GetCityResponse { Results = expectedResults });
 
-            var result = await _sut.Create(queryParam, currentUrl);
+            var result = await _sut.Create(queryParam);
 
 
             Assert.AreEqual(1, result.Results.Count);
@@ -110,7 +108,6 @@ namespace CityAir.UI.UnitTests.Features.CityAirQuality
         {
 
             var queryParam = new GetCityAirQueryParam();
-            var currentUrl = "https://example.com";
             var expected = new GetCityAirViewModel
             {
                 QueryParam = queryParam,
@@ -120,7 +117,7 @@ namespace CityAir.UI.UnitTests.Features.CityAirQuality
             var exception = await ApiException.Create(new HttpRequestMessage(), HttpMethod.Get, new HttpResponseMessage(), new RefitSettings(), null);
             _openAQApiMock.Setup(api => api.GetCities(queryParam)).ThrowsAsync(exception);
 
-            var result = await _sut.Create(queryParam, currentUrl);
+            var result = await _sut.Create(queryParam);
 
             Assert.That(result.QueryParam, Is.EqualTo(expected.QueryParam));
             Assert.That(result.Results, Is.EqualTo(expected.Results));

@@ -17,24 +17,24 @@ namespace CityAir.UI.Features.CityAirQuality
             _memoryCache = memoryCache ?? throw new ArgumentNullException(nameof(memoryCache));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
-        public async Task<GetCityAirViewModel> Create(GetCityAirQueryParam queryParam, string currentUrl)
+        public async Task<GetCityAirViewModel> Create(GetCityAirQueryParam queryParam)
         {
             var result = InitializeModel(queryParam);
-
+            var cachKey = GetKey(queryParam);
             try
             {
-                if (_memoryCache.TryGetValue(currentUrl, out GetCityAirViewModel cachedResponse))
+                if (_memoryCache.TryGetValue(cachKey, out GetCityAirViewModel cachedResponse))
                 {
                     return cachedResponse;
                 }
 
                 var response = await _openAQApi.GetCities(queryParam);
 
-                _logger.LogInformation($"Request processed successful for {currentUrl}", response);
+                _logger.LogInformation($"Request processed successful for {cachKey}", response);
 
                 result.Results.AddRange(response.Results);
 
-                _memoryCache.Set(currentUrl, result);
+                _memoryCache.Set(cachKey, result);
 
                 return result;
             }
@@ -78,6 +78,18 @@ namespace CityAir.UI.Features.CityAirQuality
                 Value = item,
                 Selected = item.Equals(selectedText, StringComparison.InvariantCultureIgnoreCase)
             }).ToList();
+        }
+
+        private string GetKey(GetCityAirQueryParam queryParam)
+        {
+            //.OrderBy=city&QueryParam.CountryId=&QueryParam.Entity=&QueryParam.Country=&QueryParam.City=
+            return string.Format("{0}/{1}/{2}/{3}/{4}/{5}/{6}/{7}/{8}", queryParam.Page, queryParam.Offset, 
+                queryParam.Limit, queryParam.Sort, 
+                queryParam.OrderBy, 
+                queryParam.CountryId, 
+                queryParam.Entity, 
+                queryParam.City, 
+                queryParam.Country);
         }
     }
 }

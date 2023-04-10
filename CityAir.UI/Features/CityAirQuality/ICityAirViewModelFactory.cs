@@ -2,6 +2,6 @@
 {
     public interface ICityAirViewModelFactory
     {
-        Task<GetCityAirViewModel> Create(GetCityAirQueryParam queryParam, string currentUrl);
+        Task<GetCityAirViewModel> Create(GetCityAirQueryParam queryParam);
     }
 }
